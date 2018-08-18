@@ -25,10 +25,12 @@ public class LostWorldProvider extends WorldProvider {
     @Override
     @Nonnull
     public String getSaveFolder() {
-        if (world.provider.getDimension() == LostCityConfiguration.DIMENSION_ID) {
+        // Thanks bloodmc <3 - https://github.com/McJtyMods/LostCities/issues/142#issuecomment-406838832
+        // Actually nvm, this.dimensionId is private :(
+        if (getDimension() == LostCityConfiguration.DIMENSION_ID) {
             return "LOST";
         } else {
-            return "LOST" + world.provider.getDimension();
+            return "LOST" + getDimension();
         }
     }
 
